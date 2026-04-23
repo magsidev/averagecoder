@@ -1,28 +1,36 @@
+"use client";
+
 import { getTopicById, topics } from "@/data/topics";
 import { notFound } from "next/navigation";
 import CodeEditor from "@/components/editor/CodeEditor";
 import CodeWalkthrough from "@/components/editor/CodeWalkthrough";
 import TopicVisualizer from "@/components/visualizers/TopicVisualizer";
-import { ArrowLeft, BookOpen, Clock, Lightbulb, Target } from "lucide-react";
+import MiniQuiz from "@/components/interactive/MiniQuiz";
+import PitfallsSection from "@/components/layout/PitfallsSection";
+import CheatSheet from "@/components/layout/CheatSheet";
+import { ArrowLeft, BookOpen, Clock, Lightbulb, Target, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { useState, use } from "react";
 
-export function generateStaticParams() {
-  return topics.map((topic) => ({
-    topic: topic.id,
-  }));
-}
-
-export default async function TopicPage({ params }: { params: Promise<{ topic: string }> }) {
-  const resolvedParams = await params;
+export default function TopicPage({ params }: { params: Promise<{ topic: string }> }) {
+  const resolvedParams = use(params);
   const topic = getTopicById(resolvedParams.topic);
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("javascript");
 
   if (!topic) {
     notFound();
   }
 
-  // Get next topic for bottom navigation
   const currentIndex = topics.findIndex(t => t.id === topic.id);
   const nextTopic = currentIndex < topics.length - 1 ? topics[currentIndex + 1] : null;
+
+  const initialCode = typeof topic.initialCode === 'object' 
+    ? (topic.initialCode as any)[selectedLanguage] 
+    : topic.initialCode;
+
+  const availableLanguages = typeof topic.initialCode === 'object' 
+    ? Object.keys(topic.initialCode) 
+    : ["javascript"];
 
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -44,20 +52,21 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Left Column: Content */}
         <div className="lg:col-span-2 space-y-12">
-          {/* Simple Explanation */}
-          <section>
-            <div className="flex items-center gap-2 mb-4">
-              <Lightbulb className="w-6 h-6 text-[var(--primary)]" />
-              <h2 className="text-2xl font-bold">The Chai-Level Explanation</h2>
+          {/* Asal Kahani - The Core Analogy */}
+          <section className="bg-emerald-50 dark:bg-emerald-900/10 border border-emerald-100 dark:border-emerald-900/20 p-8 rounded-3xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 p-4 opacity-10">
+              <MessageCircle className="w-24 h-24 text-emerald-600" />
             </div>
-            <div className="prose prose-lg dark:prose-invert max-w-none">
-              <p className="text-xl leading-relaxed text-[var(--foreground)] bg-[var(--primary)]/5 p-6 rounded-2xl border border-[var(--primary)]/20 shadow-sm">
-                {topic.description}
-              </p>
-              <p className="mt-6 text-[var(--muted-foreground)]">
-                Think of it like everyday life in Pakistan. When you're managing real-world scenarios, you naturally use these algorithms without even knowing it!
+            <div className="relative z-10">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="bg-emerald-600 text-white p-2 rounded-xl">
+                  <Lightbulb className="w-5 h-5" />
+                </div>
+                <h2 className="text-2xl font-bold text-emerald-900 dark:text-emerald-100">Asal Kahani: {topic.pakistaniAnalogy.title}</h2>
+              </div>
+              <p className="text-lg leading-relaxed text-emerald-800 dark:text-emerald-200 font-medium">
+                {topic.pakistaniAnalogy.story}
               </p>
             </div>
           </section>
@@ -71,7 +80,7 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
           <section className="prose prose-slate dark:prose-invert max-w-none">
             <div className="flex items-center gap-2 mb-4">
               <BookOpen className="w-6 h-6 text-[var(--primary)]" />
-              <h2 className="text-2xl font-bold m-0">What is {topic.title}?</h2>
+              <h2 className="text-2xl font-bold m-0">In Technical Words...</h2>
             </div>
             <div className="text-lg text-[var(--muted-foreground)] leading-relaxed whitespace-pre-wrap">
               {topic.detailedExplanation || topic.description}
@@ -92,11 +101,7 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
                 <p className="mb-6 text-[var(--muted-foreground)]">Har line ka matlab Roman English mein samjhein:</p>
                 <CodeWalkthrough code={topic.walkthrough.code} steps={topic.walkthrough.steps} />
               </div>
-            ) : (
-              <div className="p-8 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-dashed border-[var(--border)] text-center mb-12">
-                <p className="text-[var(--muted-foreground)] italic">Detailed walkthrough for {topic.title} coming soon!</p>
-              </div>
-            )}
+            ) : null}
 
             <div className="flex items-center justify-between mb-4 mt-12">
               <div className="flex items-center gap-2">
@@ -107,8 +112,35 @@ export default async function TopicPage({ params }: { params: Promise<{ topic: s
             <p className="mb-6 text-[var(--muted-foreground)]">Try it yourself! Modify the code below and see how it works.</p>
             
             <CodeEditor 
-              language="javascript" 
-              initialCode={topic.initialCode || `// Implement ${topic.title} below\n\nfunction main() {\n  console.log("Learning ${topic.title} with Average Coder!");\n}\n\nmain();`} 
+              language={selectedLanguage} 
+              onLanguageChange={setSelectedLanguage}
+              availableLanguages={availableLanguages}
+              initialCode={initialCode || `// Implement ${topic.title} below\n\nfunction main() {\n  console.log("Learning ${topic.title} with Average Coder!");\n}\n\nmain();`} 
+            />
+          </section>
+
+          {/* Pitfalls Section */}
+          {topic.pitfalls && (
+            <section>
+              <PitfallsSection pitfalls={topic.pitfalls} />
+            </section>
+          )}
+
+          {/* Quiz Section */}
+          {topic.quiz && (
+            <section>
+              <MiniQuiz questions={topic.quiz} topicTitle={topic.title} />
+            </section>
+          )}
+
+          {/* Cheat Sheet Section */}
+          <section>
+            <CheatSheet 
+              topicTitle={topic.title}
+              summary={topic.detailedExplanation || topic.description}
+              timeComplexity={topic.complexities?.time.average || "O(n)"}
+              spaceComplexity={topic.complexities?.space.worst || "O(1)"}
+              keyMantra={topic.category === "Data Structures" ? "Data kahan aur kese rakhna hai?" : "Kaam jaldi kese khatam karna hai?"}
             />
           </section>
         </div>
