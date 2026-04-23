@@ -49,7 +49,7 @@ export default function Footer() {
         </div>
         
         <div className="mt-12 pt-8 border-t border-[var(--border)] text-center text-slate-400">
-          <p>&copy; {new Date().getFullYear()} Average Coder. Made with ❤️ in Pakistan.</p>
+          <p>&copy; {new Date().getFullYear()} Average Coder. Made with ❤️ in Pakistan. Built by Usman.</p>
         </div>
       </div>
     </footer>

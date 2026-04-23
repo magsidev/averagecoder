@@ -27,7 +27,7 @@ export default function AboutPage() {
         
         <div className="container mx-auto px-4 text-center">
           <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[var(--primary)] uppercase bg-[var(--primary)]/10 rounded-full">
-            The Story Behind Average Coder
+            Built by Usman
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
             Built for <span className="text-[var(--primary)]">Clarity</span>,<br/>
@@ -125,7 +125,7 @@ export default function AboutPage() {
             <h3 className="text-3xl md:text-5xl font-serif mb-8 leading-tight">
               "True understanding of technology only comes from managing your own 'why'. If you aren't building, you aren't learning."
             </h3>
-            <p className="text-emerald-400 font-bold tracking-widest uppercase">— Average Coder Team</p>
+            <p className="text-emerald-400 font-bold tracking-widest uppercase">— Usman</p>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent opacity-50"></div>
