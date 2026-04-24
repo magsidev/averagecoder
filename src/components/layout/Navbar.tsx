@@ -87,9 +87,6 @@ const Navbar = () => {
                 className="h-9 w-64 rounded-md border border-[var(--border)] bg-[var(--input)] pl-9 pr-4 text-sm focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
               />
             </div>
-            <button className="bg-[var(--primary)] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[var(--primary)]/90 transition-colors">
-              Sign In
-            </button>
           </div>
 
           <div className="md:hidden flex items-center">
