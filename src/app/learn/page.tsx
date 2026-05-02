@@ -7,7 +7,7 @@ export default function LearnPage() {
   const algorithms = topics.filter(t => t.category === "Algorithms");
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="container mx-auto px-5 sm:px-6 lg:px-8 py-12">
       <div className="max-w-3xl mb-16">
         <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-6">Learning Path</h1>
         <p className="text-xl text-[var(--muted-foreground)]">

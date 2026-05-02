@@ -3,7 +3,7 @@ import { Terminal, Lightbulb } from "lucide-react";
 
 export default function PracticePage() {
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 h-[calc(100vh-4rem)] flex flex-col">
+    <div className="container mx-auto px-5 sm:px-6 lg:px-8 py-12 h-[calc(100vh-4rem)] flex flex-col">
       <div className="mb-6 flex justify-between items-end">
         <div>
           <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Code Playground</h1>

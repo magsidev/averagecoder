@@ -102,7 +102,7 @@ export default function CodeWalkthrough({ code, steps }: CodeWalkthroughProps) {
           <button 
             onClick={handleNext} 
             disabled={currentStepIndex === steps.length - 1}
-            className="flex items-center gap-1 px-4 py-2 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary)]/90 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
+            className="flex items-center gap-1 px-5 py-2 bg-[var(--primary)] text-white rounded-lg hover:bg-[var(--primary)]/90 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
           >
             Next <ArrowRight className="w-4 h-4" />
           </button>

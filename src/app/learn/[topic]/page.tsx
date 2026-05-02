@@ -33,7 +33,7 @@ export default function TopicPage({ params }: { params: Promise<{ topic: string 
     : ["javascript"];
 
   return (
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="container mx-auto px-5 sm:px-6 lg:px-8 py-12">
       <div className="mb-8">
         <Link href="/learn" className="inline-flex items-center text-sm font-medium text-[var(--muted-foreground)] hover:text-[var(--primary)] transition-colors mb-4">
           <ArrowLeft className="w-4 h-4 mr-2" /> Back to Topics

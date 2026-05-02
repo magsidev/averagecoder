@@ -142,7 +142,7 @@ export default function CodeEditor({
         <div className="flex gap-3">
           <button 
             onClick={handleReset}
-            className="flex items-center gap-1.5 text-xs px-4 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 transition-all font-bold border border-white/5"
+            className="flex items-center gap-1.5 text-xs px-5 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 transition-all font-bold border border-white/5"
           >
             <RotateCcw className="w-3.5 h-3.5" /> Reset
           </button>

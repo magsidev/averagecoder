@@ -7,7 +7,7 @@ export default function Home() {
     <div className="flex flex-col items-center">
       {/* Hero Section */}
       <section className="w-full relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-navy-900 to-navy-800 text-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--primary)]/10 text-[var(--primary)] text-sm font-medium mb-6">
               <span className="flex h-2 w-2 rounded-full bg-[var(--primary)]"></span>
@@ -37,7 +37,7 @@ export default function Home() {
 
       {/* Why Average Coder */}
       <section className="w-full py-24 bg-[var(--background)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Average Coder?</h2>
             <p className="text-[var(--muted-foreground)] max-w-2xl mx-auto text-lg">We took the hardest CS topics and translated them into the language of the streets.</p>
@@ -73,7 +73,7 @@ export default function Home() {
 
       {/* Featured Topics Grid */}
       <section className="w-full py-24 bg-[var(--muted)]/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Master Every Topic</h2>
@@ -112,7 +112,7 @@ export default function Home() {
 
       {/* Student Success */}
       <section className="w-full py-24 bg-[var(--background)]">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container mx-auto px-5 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Loved by Students</h2>
             <p className="text-[var(--muted-foreground)] max-w-2xl mx-auto text-lg">See what other engineers are saying about Average Coder.</p>

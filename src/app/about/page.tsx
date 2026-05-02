@@ -25,8 +25,8 @@ export default function AboutPage() {
         <div className="absolute top-0 left-0 w-full h-full bg-[var(--primary)]/5 -z-10"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[var(--primary)]/10 rounded-full blur-3xl -z-10"></div>
         
-        <div className="container mx-auto px-4 text-center">
-          <span className="inline-block px-4 py-1.5 mb-6 text-sm font-bold tracking-widest text-[var(--primary)] uppercase bg-[var(--primary)]/10 rounded-full">
+        <div className="container mx-auto px-5 text-center">
+          <span className="inline-block px-5 py-1.5 mb-6 text-sm font-bold tracking-widest text-[var(--primary)] uppercase bg-[var(--primary)]/10 rounded-full">
             Built by Usman
           </span>
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight mb-8">
@@ -41,7 +41,7 @@ export default function AboutPage() {
 
       {/* Mission Section */}
       <section className="py-24 border-y border-[var(--border)]">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl bg-slate-900 relative group">
@@ -56,10 +56,10 @@ export default function AboutPage() {
                 </div>
                 
                 {/* Achievement Floating Tags */}
-                <div className="absolute top-8 left-8 z-30 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-xs font-bold text-white flex items-center gap-2">
+                <div className="absolute top-8 left-8 z-30 bg-black/60 backdrop-blur-md px-5 py-2 rounded-full border border-white/10 text-xs font-bold text-white flex items-center gap-2">
                   <Lightbulb className="w-3 h-3 text-gold-500" /> Simplified Learning
                 </div>
-                <div className="absolute top-24 right-8 z-30 bg-black/60 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-xs font-bold text-white flex items-center gap-2">
+                <div className="absolute top-24 right-8 z-30 bg-black/60 backdrop-blur-md px-5 py-2 rounded-full border border-white/10 text-xs font-bold text-white flex items-center gap-2">
                   <Code2 className="w-3 h-3 text-blue-400" /> Interactive Playgrounds
                 </div>
               </div>
@@ -85,7 +85,7 @@ export default function AboutPage() {
               
               <div className="prose prose-lg dark:prose-invert">
                 <p>
-                  We believe that the best technology is invisible—it just works. We saw students struggling with complex data structures and thought: <em>"Why can't this be as simple as an egg tray or a Dhaba line?"</em>
+                  We believe that the best technology is invisible - it just works. We saw students struggling with complex data structures and thought: <em>"Why can't this be as simple as an egg tray or a Dhaba line?"</em>
                 </p>
                 <p>
                   That's why Average Coder focuses on the <strong>"Asal Kahani"</strong> (Real Story) behind every algorithm. We break down intimidating theoretical concepts into everyday analogies that just make sense.
@@ -120,12 +120,12 @@ export default function AboutPage() {
 
       {/* Quote Section */}
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-5 relative z-10">
           <div className="max-w-4xl mx-auto text-center italic">
             <h3 className="text-3xl md:text-5xl font-serif mb-8 leading-tight">
               "True understanding of technology only comes from managing your own 'why'. If you aren't building, you aren't learning."
             </h3>
-            <p className="text-emerald-400 font-bold tracking-widest uppercase">— Usman</p>
+            <p className="text-emerald-400 font-bold tracking-widest uppercase">- Usman</p>
           </div>
         </div>
         <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent opacity-50"></div>
@@ -133,7 +133,7 @@ export default function AboutPage() {
 
       {/* Stats Section */}
       <section className="py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-5">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div className="text-center space-y-4">
               <div className="text-6xl font-black text-[var(--primary)]">13+</div>
@@ -155,7 +155,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 container mx-auto px-4">
+      <section className="py-24 container mx-auto px-5">
         <div className="bg-gradient-to-br from-slate-900 to-black rounded-[3rem] p-16 text-center text-white shadow-2xl relative overflow-hidden border border-white/5">
           <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--primary)]/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-gold-500/5 rounded-full -ml-48 -mb-48 blur-3xl"></div>

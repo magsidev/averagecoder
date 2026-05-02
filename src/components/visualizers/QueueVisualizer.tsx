@@ -107,7 +107,7 @@ export default function QueueVisualizer() {
         <div className="flex items-center ml-40 h-24 relative w-full overflow-hidden">
           <div className="absolute left-0 w-full h-1 bg-dashed bg-slate-300 dark:bg-slate-600 border-t-2 border-dashed border-slate-300 dark:border-slate-600 top-1/2 -translate-y-1/2 -z-10"></div>
           
-          <div className="flex gap-4 px-4 items-center">
+          <div className="flex gap-4 px-5 items-center">
             <AnimatePresence>
               {queue.map((person, index) => (
                 <motion.div

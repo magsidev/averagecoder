@@ -32,10 +32,10 @@ export default function TreeVisualizer() {
           </div>
 
           <div className="flex w-full justify-between mt-10 px-10">
-            <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.4}} className="bg-green-500 text-white font-bold px-4 py-2 rounded-xl shadow-md border-2 border-white text-sm">Leaf: You</motion.div>
-            <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.5}} className="bg-green-500 text-white font-bold px-4 py-2 rounded-xl shadow-md border-2 border-white text-sm">Leaf: Sister</motion.div>
+            <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.4}} className="bg-green-500 text-white font-bold px-5 py-2 rounded-xl shadow-md border-2 border-white text-sm">Leaf: You</motion.div>
+            <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.5}} className="bg-green-500 text-white font-bold px-5 py-2 rounded-xl shadow-md border-2 border-white text-sm">Leaf: Sister</motion.div>
             <div className="w-10"></div>
-            <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.6}} className="bg-green-500 text-white font-bold px-4 py-2 rounded-xl shadow-md border-2 border-white text-sm">Leaf: Cousin</motion.div>
+            <motion.div initial={{scale:0}} animate={{scale:1}} transition={{delay:0.6}} className="bg-green-500 text-white font-bold px-5 py-2 rounded-xl shadow-md border-2 border-white text-sm">Leaf: Cousin</motion.div>
           </div>
         </div>
       </div>

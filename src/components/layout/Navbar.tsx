@@ -2,16 +2,22 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, Search, X, Code2 } from "lucide-react";
+import { Menu, Search, X, Code2, Moon, Sun } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTheme } from "next-themes";
+import { useEffect } from "react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isLearnOpen, setIsLearnOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-[var(--background)]/95 backdrop-blur supports-[backdrop-filter]:bg-[var(--background)]/60">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2">
@@ -87,12 +93,28 @@ const Navbar = () => {
                 className="h-9 w-64 rounded-md border border-[var(--border)] bg-[var(--input)] pl-9 pr-4 text-sm focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
               />
             </div>
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-md hover:bg-[var(--muted)] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+            )}
           </div>
 
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center gap-2">
+            {mounted && (
+              <button
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="p-2 rounded-md hover:bg-[var(--muted)] transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+              >
+                {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+              </button>
+            )}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[var(--foreground)] hover:text-[var(--primary)] focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[var(--foreground)] hover:text-[var(--primary)] focus:outline-none min-h-[44px] min-w-[44px]"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
@@ -110,14 +132,14 @@ const Navbar = () => {
             className="md:hidden overflow-hidden border-t border-[var(--border)]"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-[var(--background)]">
-              <Link href="/learn" className="block px-3 py-2 rounded-md text-base font-medium text-[var(--foreground)] hover:bg-[var(--muted)]">Learn</Link>
-              <Link href="/practice" className="block px-3 py-2 rounded-md text-base font-medium text-[var(--foreground)] hover:bg-[var(--muted)]">Practice</Link>
-              <Link href="/about" className="block px-3 py-2 rounded-md text-base font-medium text-[var(--foreground)] hover:bg-[var(--muted)]">About</Link>
+              <Link href="/learn" className="flex items-center px-3 py-2 min-h-[44px] rounded-md text-base font-medium text-[var(--foreground)] hover:bg-[var(--muted)]">Learn</Link>
+              <Link href="/practice" className="flex items-center px-3 py-2 min-h-[44px] rounded-md text-base font-medium text-[var(--foreground)] hover:bg-[var(--muted)]">Practice</Link>
+              <Link href="/about" className="flex items-center px-3 py-2 min-h-[44px] rounded-md text-base font-medium text-[var(--foreground)] hover:bg-[var(--muted)]">About</Link>
               <div className="mt-4 px-3">
                 <input
                   type="text"
                   placeholder="Search topics..."
-                  className="w-full h-10 rounded-md border border-[var(--border)] bg-[var(--input)] px-4 text-sm focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
+                  className="w-full min-h-[44px] rounded-md border border-[var(--border)] bg-[var(--input)] px-5 text-base focus:border-[var(--primary)] focus:outline-none focus:ring-1 focus:ring-[var(--primary)]"
                 />
               </div>
             </div>
